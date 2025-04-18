@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>SIEM Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    ::-webkit-scrollbar {
+      height: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #374151;
+      border-radius: 10px;
+    }
+  </style>
+ </head>
+ <body class="bg-[#0f1412] font-sans text-gray-300 min-h-screen p-4">
+  <header class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+   <h1 class="text-white text-2xl font-bold mb-3 sm:mb-0">SIEM</h1>
+   <form class="relative w-full sm:w-64">
+    <input type="search" aria-label="Search" placeholder="Search..." class="w-full bg-[#1a1f1c] rounded-md py-2 pl-10 pr-3 text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-cyan-500"/>
+    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+     <i class="fas fa-search"></i>
+    </span>
+   </form>
+  </header>
+
+  <nav class="mb-6 flex space-x-8 border-b border-cyan-600">
+   <a href="#" class="text-white font-semibold border-b-2 border-cyan-600 pb-1">Dashboard</a>
+   <a href="#" class="text-gray-500 hover:text-gray-300">Real-Time Events</a>
+   <a href="#" class="text-gray-500 hover:text-gray-300">Log Entries</a>
+   <a href="#" class="text-gray-500 hover:text-gray-300">Search</a>
+  </nav>
+
+  <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+   <section class="md:col-span-2 bg-[#1a1f1c] rounded-md p-4">
+    <h2 class="text-white font-semibold mb-3 text-lg">Real-Time Events</h2>
+    <div class="overflow-x-auto">
+     <table class="w-full text-left text-sm">
+      <thead>
+       <tr class="border-b border-gray-700 text-gray-400">
+        <th class="py-2 px-3 min-w-[110px]">Timestamp</th>
+        <th class="py-2 px-3 min-w-[110px]">Source</th>
+        <th class="py-2 px-3 min-w-[180px]">Event</th>
+        <th class="py-2 px-3 min-w-[80px]">Severity</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr class="border-b border-gray-800">
+        <td class="py-2 px-3">10.186.4.13 07:58</td>
+        <td class="py-2 px-3">Brute Force IP</td>
+        <td class="py-2 px-3">Brute force attempt</td>
+        <td class="py-2 px-3"><span class="inline-block bg-red-700 text-xs rounded px-2 py-0.5 font-semibold">High</span></td>
+       </tr>
+       <tr class="border-b border-gray-800">
+        <td class="py-2 px-3">18.27.185.15 16:05</td>
+        <td class="py-2 px-3">Internal Server</td>
+        <td class="py-2 px-3">Malware detected</td>
+        <td class="py-2 px-3"><span class="inline-block bg-orange-600 text-xs rounded px-2 py-0.5 font-semibold">Medium</span></td>
+       </tr>
+       <tr class="border-b border-gray-800">
+        <td class="py-2 px-3">10.16.86.16 22:35</td>
+        <td class="py-2 px-3">Email Scanner</td>
+        <td class="py-2 px-3">Phishing attempt</td>
+        <td class="py-2 px-3"><span class="inline-block bg-yellow-600 text-xs rounded px-2 py-0.5 font-semibold">Low</span></td>
+       </tr>
+       <tr>
+        <td class="py-2 px-3">10.2.8.113 19:13</td>
+        <td class="py-2 px-3">System Check</td>
+        <td class="py-2 px-3">Threat detected</td>
+        <td class="py-2 px-3"><span class="inline-block bg-green-600 text-xs rounded px-2 py-0.5 font-semibold">Info</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </section>
+
+   <section class="space-y-6">
+    <div class="bg-[#1a1f1c] rounded-md p-4">
+     <h2 class="text-white font-semibold mb-3 text-lg">Alerts</h2>
+     <div class="bg-[#5a2f2a] rounded-md p-3 text-red-400 text-sm font-semibold flex items-center gap-2">
+      <i class="fas fa-exclamation-triangle"></i>
+      Malware detected on server "Vetecore"
+     </div>
+    </div>
+
+    <div class="bg-[#1a1f1c] rounded-md p-4">
+     <h2 class="text-white font-semibold mb-3 text-lg">Log Entry Severity</h2>
+     <img src="https://storage.googleapis.com/a1aa/image/2aa46a09-5401-4b78-4b41-f43fc9f83578.jpg" alt="Log severity chart" class="w-full"/>
+     <div class="flex justify-between text-xs mt-3 text-gray-400">
+      <span><span class="inline-block w-3 h-3 bg-red-600 mr-1"></span>High</span>
+      <span><span class="inline-block w-3 h-3 bg-orange-600 mr-1"></span>Medium</span>
+      <span><span class="inline-block w-3 h-3 bg-yellow-400 mr-1"></span>Low</span>
+      <span><span class="inline-block w-3 h-3 bg-green-600 mr-1"></span>Info</span>
+     </div>
+    </div>
+
+    <div class="bg-[#1a1f1c] rounded-md p-4">
+     <h2 class="text-white font-semibold mb-3 text-lg">Admin Notes</h2>
+     <p class="text-gray-500 text-xs leading-relaxed">Use this section to log manual checks, observations, or policy changes for future audits.</p>
+    </div>
+   </section>
+  </main>
+
+  <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+   <div class="bg-[#1a1f1c] rounded-md p-4">
+    <h2 class="text-white font-semibold mb-3 text-lg">Threat Overview</h2>
+    <img src="https://storage.googleapis.com/a1aa/image/da8434df-77c6-4310-f683-a42516f3c0e2.jpg" alt="Radar threat chart" class="w-full"/>
+   </div>
+   <div class="bg-[#1a1f1c] rounded-md p-4">
+    <h2 class="text-white font-semibold mb-3 text-lg">Recent Logins</h2>
+    <table class="w-full text-left text-sm text-gray-300">
+     <thead>
+      <tr class="border-b border-gray-700 text-gray-400">
+       <th class="py-2 px-3">Timestamp</th>
+       <th class="py-2 px-3">User</th>
+       <th class="py-2 px-3">Role</th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr class="border-b border-gray-800">
+       <td class="py-2 px-3">10.0.6.45 09:01</td>
+       <td class="py-2 px-3">j.smith</td>
+       <td class="py-2 px-3">Analyst</td>
+      </tr>
+      <tr>
+       <td class="py-2 px-3">186.31.166.7 14:23</td>
+       <td class="py-2 px-3">admin</td>
+       <td class="py-2 px-3">Admin</td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <div class="bg-[#1a1f1c] rounded-md p-4">
+    <h2 class="text-white font-semibold mb-3 text-lg">Tool Information</h2>
+    <p class="text-gray-500 text-xs leading-relaxed">Data processed by tools like <i class="fas fa-bolt mx-1"></i> Splunk, ElasticSearch, and custom log pipelines.</p>
+   </div>
+  </section>
+ </body>
+</html>
